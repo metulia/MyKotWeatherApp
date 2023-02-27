@@ -1,6 +1,7 @@
 package com.example.mykotweatherapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,5 +19,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show();
         }
+
+        val person1: Person = Person("Василий", 25)
+        val person2 = Person("Иван", 30)
+
+        Log.d("mylogs", "$person1")
+        Log.d("mylogs", "$person2")
     }
 }
