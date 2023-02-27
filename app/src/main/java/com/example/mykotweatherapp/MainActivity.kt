@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         val person1: Person = Person("Василий", 25)
         val person2 = Person("Иван", 30)
 
+        val person3 = person2.copy(age = 35)
+
         Log.d("mylogs", "$person1")
         Log.d("mylogs", "$person2")
+        Log.d("mylogs", "$person3")
+        Log.d("mylogs", "${DataBase.getTest()}")
     }
 }
