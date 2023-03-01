@@ -29,5 +29,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("mylogs", "$person2")
         Log.d("mylogs", "$person3")
         Log.d("mylogs", "${DataBase.getTest()}")
+
+        DataBase.getTestCycle()
+        repeat(10) {
+            Log.d("mylogs", "$it getTestCycle2")
+        }
     }
 }
