@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/start_button"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/start_button"
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,3 @@
 <resources>
     <string name="app_name">MyKotWeatherApp</string>
-    <string name="start_button">Нажми сюда для начала работы</string>
 </resources>
