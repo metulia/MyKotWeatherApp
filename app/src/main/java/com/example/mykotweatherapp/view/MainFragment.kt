@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mykotweatherapp.R
 import com.example.mykotweatherapp.databinding.FragmentMainBinding
+import com.example.mykotweatherapp.viewmodel.AppState
 import com.example.mykotweatherapp.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
@@ -30,8 +31,8 @@ class MainFragment : Fragment() {
 
         val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        val observer = object : Observer<Any> {
-            override fun onChanged(data: Any) {
+        val observer = object : Observer<AppState> {
+            override fun onChanged(data: AppState) {
                 renderData(data)
             }
         }
@@ -41,8 +42,19 @@ class MainFragment : Fragment() {
         viewModel.getWeather()
     }
 
-    private fun renderData(data: Any) {
-        Toast.makeText(requireContext(), "Работает", Toast.LENGTH_SHORT).show()
+    private fun renderData(data: AppState) {
+        when (data) {
+            is AppState.Error -> {
+                binding.loadingLayout.visibility = View.VISIBLE
+            }
+            is AppState.Loading -> {
+                binding.loadingLayout.visibility = View.VISIBLE
+            }
+            is AppState.Success -> {
+                binding.loadingLayout.visibility = View.GONE
+                Toast.makeText(requireContext(), "Работает", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     companion object {
