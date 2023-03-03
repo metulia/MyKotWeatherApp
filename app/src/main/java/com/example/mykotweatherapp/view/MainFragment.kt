@@ -46,13 +46,15 @@ class MainFragment : Fragment() {
         when (data) {
             is AppState.Error -> {
                 binding.loadingLayout.visibility = View.VISIBLE
+                binding.message.text = "Не получилось ${data.error}"
             }
             is AppState.Loading -> {
                 binding.loadingLayout.visibility = View.VISIBLE
             }
             is AppState.Success -> {
                 binding.loadingLayout.visibility = View.GONE
-                Toast.makeText(requireContext(), "Работает", Toast.LENGTH_SHORT).show()
+                binding.message.text = "Получилось"
+                //Toast.makeText(requireContext(), "Работает", Toast.LENGTH_SHORT).show()
             }
         }
     }
